@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>История конверсий</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Логотип" class="logo">
+    <h1>История конверсий</h1>
+    <ul>
+        {% for record in history %}
+        <li>{{ record.timestamp }} - {{ record.amount }} {{ record.source_currency }} -> {{ record.result }} {{ record.target_currency }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/clear_history">Очистить историю</a>
+    <br>
+    <a href="/">Назад</a>
+    </div>
+</body>
+</html>
